@@ -20,7 +20,7 @@ const PageSignIn = () => {
 
   const signin = async () => {
     try {
-      const response = await fetch(`${configApi.BASE_URL}/signin`, {
+      const response = await fetch(`${configApi.BASE_URL}/user/signin`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -35,15 +35,17 @@ const PageSignIn = () => {
 
       const content = await response.json();
       localStorage.setItem("token", content.token)
-      return navigate("/users")
+      console.log(content)
+      console.log(content.token)
+      return navigate("/list")
     } catch (error) {
-      alert(error);
+      alert(error.message);
     }
   }
 
   return (
     <>
-      <Container>
+      <div>
         <Row className="vh-100 d-flex justify-content-center align-items-center">
           <Col md={4}>
             <Card>
@@ -68,7 +70,7 @@ const PageSignIn = () => {
             </Card>
           </Col>
         </Row>
-      </Container>
+      </div>
     </>
   )
 }
