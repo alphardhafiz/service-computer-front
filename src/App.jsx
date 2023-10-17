@@ -1,16 +1,16 @@
-import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import PageLayout from './pages/PageLayout'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import PageLayout from "./pages/PageLayout"
+import PageSignin from "./pages/PageSignIn"
+import "bootstrap/dist/css/bootstrap.min.css";
+import Home from "./pages/Home";
 
-function App() {
-
+const App = () => {
+  
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<PageLayout/>}>
-          <Route index element={<Home/>}/>
-        </Route>
+      <Routes path="/" element={<Home />}>
+      <Route index element={<PageSignIn />} />
+      <Route path="/test" element={<PageLayout />} />
       </Routes>
     </BrowserRouter>
   )
