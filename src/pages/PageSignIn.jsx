@@ -1,6 +1,4 @@
 import { Outlet } from 'react-router-dom'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
 import configApi from '../../config.api';
 import { useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
@@ -54,9 +52,6 @@ const PageSignIn = () => {
                 <Form.Group className="mt-3 mb-3">
                   <Form.Label>Email address</Form.Label>
                   <Form.Control value={user.email} onChange={handleInput} name="email" type="email" placeholder="Enter your email"/>
-                  <Form.Text className="text-muted">
-                    Jangan pernah membagikan email kamu kepada siapapun!
-                  </Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
