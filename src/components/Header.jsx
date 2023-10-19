@@ -2,34 +2,23 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Button from 'react-bootstrap/Button';
+
 
 function Header() {
   return (
-    <Navbar expand="lg" bg="dark" data-bs-theme="dark">
-      <Container>
-        <Navbar.Brand href="#home">Payslip App</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+    <>
+      <Navbar bg="dark" data-bs-theme="dark">
+        <Container>
+          <Navbar.Brand href="#home">Service JC</Navbar.Brand>
           <Nav className="me-auto">
-            <NavDropdown title="Master" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/users">Users</NavDropdown.Item>
-              <NavDropdown.Item href="/employees">
-                Employee
-              </NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title="Transactions" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/salaries">
-                Salary (Payroll)
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/slips">
-                Salary (Payslip)
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="#home">list barang</Nav.Link>
+            <Button variant="outline-warning position-relative" style={{left:'840px'}}>Daftar</Button>
+            <Button variant="outline-success position-relative" style={{left:'850px'}}>Masuk</Button>
           </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        </Container>
+      </Navbar>
+      </>
   );
 }
 
