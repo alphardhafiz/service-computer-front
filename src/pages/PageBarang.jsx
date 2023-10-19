@@ -6,7 +6,6 @@ const PageBarang = () => {
   const [namaBarang, setnamaBarang] = useState("");
   const [tipeKerusakan, settipeKerusakan] = useState("");
   const [harga, setharga] = useState("");
-  const [status, setstatus] = useState("");
   const [hpCustomer, sethpCustomer] = useState("");
   const [namaCustomer, setnamaCustomer] = useState("");
   const navigate = useNavigate();
@@ -14,19 +13,24 @@ const PageBarang = () => {
   const saveBarang = async (e) => {
     e.preventDefault();
     try {
+      const token = localStorage.getItem('token');
+      const config = {
+        headers: {
+          'x-access-token': token
+        }
+      };
       await axios.post("http://localhost:3000/api/barang", {
         namaBarang,
         tipeKerusakan,
         harga,
-        status,
         hpCustomer,
         namaCustomer
-      });
+      }, config);
       navigate("/");
     } catch (error) {
       console.log(error);
-    }
-  };
+    }
+};
 
   return (
     <div className="columns mt-5">
@@ -62,17 +66,6 @@ const PageBarang = () => {
                 className="input"
                 value={harga}
                 onChange={(e) => setharga(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">status</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={status}
-                onChange={(e) => setstatus(e.target.value)}
               />
             </div>
           </div>
