@@ -36,8 +36,8 @@ const PageList = () => {
   return (
     <div className="columns mt-5">
       <div className="column is-half">
-        <Link to="/list/add" className="btn btn-success">
-          Add New
+        <Link to="/list/add" className="btn btn-success position-relative " style={{left:'10px'}}>
+          Tambah Data
         </Link>
         <table className="table is-striped is-fullwidth mt-2">
           <thead>
