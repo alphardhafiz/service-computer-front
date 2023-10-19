@@ -13,7 +13,6 @@ function Header() {
           <Navbar.Brand href="#home">Service JC</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">list barang</Nav.Link>
-            <Button variant="outline-warning position-relative" style={{left:'840px'}}>Daftar</Button>
             <Button variant="outline-success position-relative" style={{left:'850px'}}>Masuk</Button>
           </Nav>
         </Container>
