@@ -5,6 +5,7 @@ import PageList from "./pages/PageList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home";
 import PageBarang from "./pages/PageBarang";
+import PageEdit from "./pages/PageEdit";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/list" element={<PageList />} />
           <Route path="/list/add" element={<PageBarang />} />
+          <Route path="/list/edit/:id" element={<PageEdit />} />
         </Route>
         
         <Route path="/signin" element={<PageSignIn />} />
