@@ -6,9 +6,11 @@ import Header from "../components/Header";
 const PageLayout = () => {
   return (
     <>
+      <div className='min-vh-100'>
       <Header />
       <Outlet />
       <Footer />
+      </div>
     </>
   );
 };

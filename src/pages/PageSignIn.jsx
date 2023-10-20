@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import AdminModel from "../../models/AdminModel";
 import { useNavigate } from "react-router-dom";
+import classes from './background.module.css'
 
 const PageSignIn = () => {
   let navigate = useNavigate();
@@ -32,10 +33,10 @@ const PageSignIn = () => {
       }
 
       const content = await response.json();
-      localStorage.setItem("token", content.token);
-      console.log(content);
-      console.log(content.token);
-      return navigate("/");
+      localStorage.setItem("token", content.token)
+      console.log(content)
+      console.log(content.token)
+      return navigate("/list")
     } catch (error) {
       alert(error.message);
     }
@@ -43,7 +44,7 @@ const PageSignIn = () => {
 
   return (
     <>
-      <div style={{ backgroundColor: "black" }}>
+      <div className={classes.backhead}>
         <Row className="vh-100 d-flex justify-content-center align-items-center">
           <Col md={4}>
             <Card>
