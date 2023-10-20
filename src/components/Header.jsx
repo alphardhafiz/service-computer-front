@@ -15,7 +15,7 @@ function Header() {
 
   const logout = () => {
     localStorage.removeItem("token")
-    redirect('/')
+    navigate('/')
   }
 
   return (
