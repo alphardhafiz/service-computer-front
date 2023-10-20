@@ -19,19 +19,6 @@ const PageBarang = () => {
           "x-access-token": token,
         },
       };
-
-      await axios.post("http://localhost:3000/api/barang", {
-        namaBarang,
-        tipeKerusakan,
-        harga,
-        hpCustomer,
-        namaCustomer
-      }, config);
-      navigate("/list");
-    } catch (error) {
-      console.log(error);
-  }
-};
       await axios.post(
         "http://localhost:3000/api/barang",
         {
@@ -48,7 +35,7 @@ const PageBarang = () => {
       console.log(error);
     }
   };
-y
+
   return (
     <div className="columns mt-5">
       <div className="column">

@@ -43,11 +43,7 @@ function Header() {
               </Button>
             ) : (
               <Link to="/signin">
-<<<<<<< HEAD
                 <Button variant="warning position-relative" style={{right:'300 rem'}}>
-=======
-                <Button variant="warning" style={{ right: "0 rem" }}>
->>>>>>> c18e021c37add54814c25359a57dfcabfa1fafaa
                   Sign in
                 </Button>
               </Link>

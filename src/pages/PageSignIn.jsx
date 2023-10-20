@@ -33,17 +33,10 @@ const PageSignIn = () => {
       }
 
       const content = await response.json();
-<<<<<<< HEAD
       localStorage.setItem("token", content.token)
       console.log(content)
       console.log(content.token)
       return navigate("/list")
-=======
-      localStorage.setItem("token", content.token);
-      console.log(content);
-      console.log(content.token);
-      return navigate("/");
->>>>>>> c18e021c37add54814c25359a57dfcabfa1fafaa
     } catch (error) {
       alert(error.message);
     }
@@ -51,11 +44,7 @@ const PageSignIn = () => {
 
   return (
     <>
-<<<<<<< HEAD
       <div className={classes.backhead}>
-=======
-      <div style={{ backgroundColor: "black" }}>
->>>>>>> c18e021c37add54814c25359a57dfcabfa1fafaa
         <Row className="vh-100 d-flex justify-content-center align-items-center">
           <Col md={4}>
             <Card>
