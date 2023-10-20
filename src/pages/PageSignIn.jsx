@@ -43,18 +43,18 @@ const PageSignIn = () => {
 
   return (
     <>
-      <div>
+      <div style={{ backgroundColor : 'black'}} >
         <Row className="vh-100 d-flex justify-content-center align-items-center">
           <Col md={4}>
             <Card>
               <Card.Body>
-                <Card.Title>Payslip App</Card.Title>
+                <Card.Title className='text-center'>Admin Service</Card.Title>
                 <Form.Group className="mt-3 mb-3">
-                  <Form.Label>Email address</Form.Label>
+                  <Form.Label>Masukkan Email</Form.Label>
                   <Form.Control value={user.email} onChange={handleInput} name="email" type="email" placeholder="Enter your email"/>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Label>Password</Form.Label>
+                  <Form.Label>Masukkan Password</Form.Label>
                   <Form.Control value={user.password} onChange={handleInput} name="password" type="password" placeholder="Enter your password"/>
                 </Form.Group>
 
