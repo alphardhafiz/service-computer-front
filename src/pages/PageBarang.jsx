@@ -26,10 +26,10 @@ const PageBarang = () => {
         hpCustomer,
         namaCustomer
       }, config);
-      navigate("/");
+      navigate("/list");
     } catch (error) {
       console.log(error);
-    }
+  }
 };
 
   return (

@@ -33,14 +33,15 @@ const PageEdit = () => {
           'x-access-token': token
         }
       };
-      await axios.post("http://localhost:3000/api/barang", {
+      await axios.put("http://localhost:3000/api/barang", {
         namaBarang,
         tipeKerusakan,
-        harga,
+        namaCustomer,
         hpCustomer,
-        namaCustomer
+        harga
+        
       }, config);
-      navigate("/");
+      navigate("/list");
     } catch (error) {
       console.log(error);
     }

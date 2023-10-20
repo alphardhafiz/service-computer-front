@@ -24,7 +24,7 @@ const Home = () => {
   <div className="mb-3">
   <div className="d-flex">
   <input class="form-control form-control-lg" type="text" className="form-control" id="exampleFormControlInput1" placeholder="masukkan nomor telepon disini"/>
-    <button type="button" className="btn btn-primary position-relative px-4 py-3" style={{right:'74px'}} to="/list">
+    <button type="button" className="btn btn-primary position-relative px-4 py-3" style={{right:'70px'}} to="/list">
       Cari
     </button>
 
