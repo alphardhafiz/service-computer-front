@@ -33,7 +33,7 @@ const PageEdit = () => {
           'x-access-token': token
         }
       };
-      await axios.put("http://localhost:3000/api/barang", {
+      await axios.put("http://localhost:3000/api/list/edit/${id}", {
         namaBarang,
         tipeKerusakan,
         namaCustomer,
