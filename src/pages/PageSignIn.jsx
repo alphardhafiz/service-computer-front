@@ -35,7 +35,7 @@ const PageSignIn = () => {
       localStorage.setItem("token", content.token)
       console.log(content)
       console.log(content.token)
-      return navigate("/list")
+      return navigate("/")
     } catch (error) {
       alert(error.message);
     }
