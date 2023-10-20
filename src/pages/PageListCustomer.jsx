@@ -4,7 +4,7 @@ import { Link, redirect, useParams } from "react-router-dom";
 
 const PageListCustomer = () => {
   const [barang, setBarang] = useState([]);
-  const {noHp} = useParams()
+  const { noHp } = useParams();
 
   const getBarang = async () => {
     try {
