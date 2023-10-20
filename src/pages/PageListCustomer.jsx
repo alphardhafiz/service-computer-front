@@ -1,23 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, redirect } from "react-router-dom";
+import { Link, redirect, useParams } from "react-router-dom";
 
-const PageList = () => {
+const PageListCustomer = () => {
   const [barang, setBarang] = useState([]);
+  const {noHp} = useParams()
 
   const getBarang = async () => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      return redirect("/");
-    }
     try {
-      const response = await fetch(`http://localhost:3000/api/barang`, {
+      const response = await fetch(`http://localhost:3000/api/barang/${noHp}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          "x-access-token": localStorage.getItem("token"),
         },
       });
 
@@ -40,13 +35,13 @@ const PageList = () => {
   return (
     <div className="columns mt-5">
       <div className="column is-half">
-        <Link
+        {/* <Link
           to="/list/add"
           className="btn btn-success position-relative "
           style={{ left: "10px" }}
         >
           Tambah Data
-        </Link>
+        </Link> */}
         <table className="table is-striped is-fullwidth mt-2">
           <thead>
             <tr>
@@ -86,4 +81,4 @@ const PageList = () => {
   );
 };
 
-export default PageList;
+export default PageListCustomer;
