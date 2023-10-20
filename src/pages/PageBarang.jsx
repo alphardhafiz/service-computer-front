@@ -13,12 +13,13 @@ const PageBarang = () => {
   const saveBarang = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       const config = {
         headers: {
-          'x-access-token': token
-        }
+          "x-access-token": token,
+        },
       };
+
       await axios.post("http://localhost:3000/api/barang", {
         namaBarang,
         tipeKerusakan,
@@ -31,7 +32,23 @@ const PageBarang = () => {
       console.log(error);
   }
 };
-
+      await axios.post(
+        "http://localhost:3000/api/barang",
+        {
+          namaBarang,
+          tipeKerusakan,
+          harga,
+          hpCustomer,
+          namaCustomer,
+        },
+        config
+      );
+      navigate("/list");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+y
   return (
     <div className="columns mt-5">
       <div className="column">

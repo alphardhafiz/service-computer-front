@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import CheckAdmin from "../utils/CheckAdmin";
 
 function Header() {
@@ -13,16 +13,23 @@ function Header() {
     setIsAdmin(CheckAdmin(localStorage.getItem("token")));
   }, []);
 
-  return (
-<>
-<Navbar className="bg-body-tertiary" bg="info" data-bs-theme="info">
-      <Container>
-        <Navbar.Brand><Link to="/">
-  <img src={Logo} alt="logo" height={80} />
-</Link></Navbar.Brand>
-        <Navbar.Toggle />
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
 
-        <Navbar.Collapse className="justify-content-end">
+  return (
+    <>
+      <Navbar className="bg-body-tertiary" bg="info" data-bs-theme="info">
+        <Container>
+          <Navbar.Brand>
+            <Link to="/">
+              <img src={Logo} alt="logo" height={80} />
+            </Link>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+
+          <Navbar.Collapse className="justify-content-end">
             {isAdmin && (
               <Nav.Link>
                 <Link to="/list" className="text-decoration-none">
@@ -31,22 +38,23 @@ function Header() {
               </Nav.Link>
             )}
             {isAdmin ? (
-              <Button
-                onClick={() => localStorage.removeItem("token")}
-                variant="outline-danger"
-              >
+              <Button onClick={logout} variant="outline-danger">
                 Logout
               </Button>
             ) : (
               <Link to="/signin">
+<<<<<<< HEAD
                 <Button variant="warning position-relative" style={{right:'300 rem'}}>
+=======
+                <Button variant="warning" style={{ right: "0 rem" }}>
+>>>>>>> c18e021c37add54814c25359a57dfcabfa1fafaa
                   Sign in
                 </Button>
               </Link>
             )}
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
   );
 }
