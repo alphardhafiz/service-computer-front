@@ -14,15 +14,15 @@ function Header() {
   }, []);
 
   return (
-    <>
-      <Navbar bg="light" data-bs-theme="light">
-        <Container className="d-flex justify-content-between">
-          <Navbar.Brand>
-            <Link to="/">
-              <img src={Logo} alt="logo" height={100} />
-            </Link>
-          </Navbar.Brand>
-          <Nav className="me-auto">
+<>
+<Navbar className="bg-body-tertiary" bg="info" data-bs-theme="info">
+      <Container>
+        <Navbar.Brand><Link to="/">
+  <img src={Logo} alt="logo" height={80} />
+</Link></Navbar.Brand>
+        <Navbar.Toggle />
+
+        <Navbar.Collapse className="justify-content-end">
             {isAdmin && (
               <Nav.Link>
                 <Link to="/list" className="text-decoration-none">
@@ -39,14 +39,14 @@ function Header() {
               </Button>
             ) : (
               <Link to="/signin">
-                <Button variant="outline-success" style={{ left: "850px" }}>
-                  Signin
+                <Button variant="warning" style={{right:'0 rem'}}>
+                  Sign in
                 </Button>
               </Link>
             )}
-          </Nav>
-        </Container>
-      </Navbar>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
     </>
   );
 }
