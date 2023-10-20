@@ -14,20 +14,22 @@ function Header() {
   }, []);
 
   const logout = () => {
-    localStorage.removeItem("token")
-    navigate('/')
-  }
+    localStorage.removeItem("token");
+    navigate("/");
+  };
 
   return (
-<>
-<Navbar className="bg-body-tertiary" bg="info" data-bs-theme="info">
-      <Container>
-        <Navbar.Brand><Link to="/">
-  <img src={Logo} alt="logo" height={80} />
-</Link></Navbar.Brand>
-        <Navbar.Toggle />
+    <>
+      <Navbar className="bg-body-tertiary" bg="info" data-bs-theme="info">
+        <Container>
+          <Navbar.Brand>
+            <Link to="/">
+              <img src={Logo} alt="logo" height={80} />
+            </Link>
+          </Navbar.Brand>
+          <Navbar.Toggle />
 
-        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Collapse className="justify-content-end">
             {isAdmin && (
               <Nav.Link>
                 <Link to="/list" className="text-decoration-none">
@@ -36,22 +38,19 @@ function Header() {
               </Nav.Link>
             )}
             {isAdmin ? (
-              <Button
-                onClick={logout}
-                variant="outline-danger"
-              >
+              <Button onClick={logout} variant="outline-danger">
                 Logout
               </Button>
             ) : (
               <Link to="/signin">
-                <Button variant="warning" style={{right:'0 rem'}}>
+                <Button variant="warning" style={{ right: "0 rem" }}>
                   Sign in
                 </Button>
               </Link>
             )}
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
   );
 }

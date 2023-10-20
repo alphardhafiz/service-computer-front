@@ -3,12 +3,12 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 const PageEdit = () => {
-    const [namaBarang, setnamaBarang] = useState("");
-    const [tipeKerusakan, settipeKerusakan] = useState("");
-    const [harga, setharga] = useState("");
-    const [hpCustomer, sethpCustomer] = useState("");
-    const [namaCustomer, setnamaCustomer] = useState("");
-    const navigate = useNavigate();
+  const [namaBarang, setnamaBarang] = useState("");
+  const [tipeKerusakan, settipeKerusakan] = useState("");
+  const [harga, setharga] = useState("");
+  const [hpCustomer, sethpCustomer] = useState("");
+  const [namaCustomer, setnamaCustomer] = useState("");
+  const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
@@ -27,23 +27,27 @@ const PageEdit = () => {
   const updateBarang = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       const config = {
         headers: {
-          'x-access-token': token
-        }
+          "x-access-token": token,
+        },
       };
-      await axios.post("http://localhost:3000/api/barang", {
-        namaBarang,
-        tipeKerusakan,
-        harga,
-        hpCustomer,
-        namaCustomer
-      }, config);
+      await axios.post(
+        "http://localhost:3000/api/barang",
+        {
+          namaBarang,
+          tipeKerusakan,
+          harga,
+          hpCustomer,
+          namaCustomer,
+        },
+        config
+      );
       navigate("/");
     } catch (error) {
       console.log(error);
-    }
+    }
   };
 
   return (

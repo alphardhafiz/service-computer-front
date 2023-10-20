@@ -4,9 +4,9 @@ import { Link, redirect } from "react-router-dom";
 
 const PageList = () => {
   const [barang, setBarang] = useState([]);
-  
+
   const getBarang = async () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
     if (!token) {
       return redirect("/");
@@ -29,7 +29,7 @@ const PageList = () => {
       console.log(content);
       setBarang(content);
     } catch (error) {
-       console.log(error.message)
+      console.log(error.message);
     }
   };
 
@@ -37,11 +37,14 @@ const PageList = () => {
     getBarang();
   }, []);
 
-
   return (
     <div className="columns mt-5">
       <div className="column is-half">
-        <Link to="/list/add" className="btn btn-success position-relative " style={{left:'10px'}}>
+        <Link
+          to="/list/add"
+          className="btn btn-success position-relative "
+          style={{ left: "10px" }}
+        >
           Tambah Data
         </Link>
         <table className="table is-striped is-fullwidth mt-2">
@@ -54,13 +57,14 @@ const PageList = () => {
               <th>no hp</th>
               <th>harga</th>
               <th>status</th>
-
             </tr>
           </thead>
           <tbody>
             {barang.length < 1 && (
               <tr>
-                <td align="center" colSpan={8}>Barang Service Tidak Ada</td>
+                <td align="center" colSpan={8}>
+                  Barang Service Tidak Ada
+                </td>
               </tr>
             )}
             {barang.map((BarangModel, index) => (
@@ -72,8 +76,7 @@ const PageList = () => {
                 <td>{BarangModel.hpCustomer}</td>
                 <td>{BarangModel.harga}</td>
                 <td>{BarangModel.status}</td>
-                <td>
-                </td>
+                <td></td>
               </tr>
             ))}
           </tbody>

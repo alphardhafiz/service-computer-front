@@ -13,24 +13,28 @@ const PageBarang = () => {
   const saveBarang = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       const config = {
         headers: {
-          'x-access-token': token
-        }
+          "x-access-token": token,
+        },
       };
-      await axios.post("http://localhost:3000/api/barang", {
-        namaBarang,
-        tipeKerusakan,
-        harga,
-        hpCustomer,
-        namaCustomer
-      }, config);
+      await axios.post(
+        "http://localhost:3000/api/barang",
+        {
+          namaBarang,
+          tipeKerusakan,
+          harga,
+          hpCustomer,
+          namaCustomer,
+        },
+        config
+      );
       navigate("/list");
     } catch (error) {
       console.log(error);
-    }
-};
+    }
+  };
 
   return (
     <div className="columns mt-5">

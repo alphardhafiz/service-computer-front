@@ -12,13 +12,12 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<PageLayout />}>
-
           <Route path="/" element={<Home />} />
           <Route path="/list" element={<PageList />} />
           <Route path="/list/add" element={<PageBarang />} />
           <Route path="/list/edit/:id" element={<PageEdit />} />
         </Route>
-        
+
         <Route path="/signin" element={<PageSignIn />} />
       </Routes>
     </BrowserRouter>
