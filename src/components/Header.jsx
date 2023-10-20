@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import CheckAdmin from "../utils/CheckAdmin";
 
 function Header() {
@@ -12,6 +12,11 @@ function Header() {
   useEffect(() => {
     setIsAdmin(CheckAdmin(localStorage.getItem("token")));
   }, []);
+
+  const logout = () => {
+    localStorage.removeItem("token")
+    redirect('/')
+  }
 
   return (
     <>
@@ -32,7 +37,7 @@ function Header() {
             )}
             {isAdmin ? (
               <Button
-                onClick={() => localStorage.removeItem("token")}
+                onClick={logout}
                 variant="outline-danger"
               >
                 Logout
