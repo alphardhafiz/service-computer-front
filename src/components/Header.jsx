@@ -23,9 +23,15 @@ function Header() {
     <>
       <Navbar className="bg-body-tertiary" bg="info" data-bs-theme="info">
         <Container>
-          <Navbar.Brand>
+          <Navbar.Brand className="d-flex justify-content-center align-items-center gap-5">
             <Link to="/">
               <img src={Logo} alt="logo" height={80} />
+            </Link>
+            <Link
+              to="/contact"
+              className="text-decoration-none fw-bolder text-primary"
+            >
+              Contact
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle />
@@ -44,7 +50,10 @@ function Header() {
               </Button>
             ) : (
               <Link to="/signin">
-                <Button variant="warning position-relative" style={{right:'300 rem'}}>
+                <Button
+                  variant="warning position-relative"
+                  style={{ right: "300 rem" }}
+                >
                   Sign in
                 </Button>
               </Link>
