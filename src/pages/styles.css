@@ -598,7 +598,7 @@ progress {
 }
 
 .img-fluid {
-  max-width: 50%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -1289,6 +1289,8 @@ progress {
   .col-lg-6 {
     flex: 0 0 auto;
     width: 50%;
+    padding-right: 40px;
+    padding-left: 40px;
   }
   .col-lg-7 {
     flex: 0 0 auto;
@@ -1314,6 +1316,20 @@ progress {
     flex: 0 0 auto;
     width: 100%;
   }
+
+  .col-lg-13 {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    text-align: center; 
+    
+  
+  }
+
+
+
   .offset-lg-0 {
     margin-left: 0;
   }
@@ -4204,6 +4220,7 @@ textarea.form-control-lg {
   flex: 1 1 auto;
   padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
   color: var(--bs-card-color);
+  margin: 70px;
 }
 
 .card-title {

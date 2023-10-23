@@ -40,3 +40,13 @@
   background: -o-linear-gradient(left, #ff6a5b 0%, #ff4d7e 100%);
   background: linear-gradient(to right, #ff6a5b 0%, #ff4d7e 100%);
 }
+
+/* CSS Custom Untuk Padding Bagian Kiri */
+.custom-left-padding {
+  padding-right: 20px; /* Atur sesuai kebutuhan */
+}
+
+/* CSS Custom Untuk Padding Bagian Kanan */
+.custom-right-padding {
+  padding-left: 20px; /* Atur sesuai kebutuhan */
+}
