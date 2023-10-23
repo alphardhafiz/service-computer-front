@@ -17,7 +17,6 @@ const PageEdit = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-<<<<<<< HEAD
     getBarangById();
   }, []);
 
@@ -50,23 +49,6 @@ const PageEdit = () => {
       const [harga, setHarga] = useState("");
       const [hpCustomer, setHpCustomer] = useState("");
       const [namaCustomer, setNamaCustomer] = useState("");
-=======
-    const fetchData = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const config = {
-          headers: {
-            "x-access-token": token,
-          },
-        };
-        const response = await axios.get(`http://localhost:3000/api/barang/${id}`, config);
-        const data = response.data;
-        setInitialData(data);
-        setFormData(data);
-      } catch (error) {
-        console.log(error);
-      }
->>>>>>> d1d44b75c0bff893d07c78304294f2b0e1d88679
     };
 
   const updateBarang = async (e) => {
@@ -85,14 +67,10 @@ const PageEdit = () => {
     }
   };
 
-<<<<<<< HEAD
-
-=======
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
->>>>>>> d1d44b75c0bff893d07c78304294f2b0e1d88679
 
   return (
     <div className="columns mt-5">
