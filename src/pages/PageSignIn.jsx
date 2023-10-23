@@ -49,8 +49,7 @@ const PageSignIn = () => {
 
   return (
     <>
-      <div className={classes.backhead}>
-        <Row className="vh-100 d-flex justify-content-center align-items-center">
+      <form className={`${classes.backhead} vh-100 d-flex justify-content-center align-items-center`}>
           <Col md={4}>
             <Card>
               <Card.Body>
@@ -89,8 +88,7 @@ const PageSignIn = () => {
               </Card.Body>
             </Card>
           </Col>
-        </Row>
-      </div>
+      </form>
     </>
   );
 };

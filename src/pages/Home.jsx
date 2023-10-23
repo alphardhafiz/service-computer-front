@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       <div className="masthead">
-        <div className="row justify-content-center">
+        <div className="justify-content-center">
           <div className="col-xl-6">
             <div className="text-center text-white">
               <br />
