@@ -37,6 +37,7 @@ const PageList = () => {
     getBarang();
   }, []);
 
+<<<<<<< HEAD
 const deleteBarang = async (id) => {
     try {
       const response = await fetch(`http://localhost:3000/api/barang/${id}`, {
@@ -58,6 +59,18 @@ const deleteBarang = async (id) => {
       setBarang(content);
     } catch (error) {
       console.log(error.message);
+=======
+  const deleteBarang = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3000/api/barang/${id}`, {
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        },
+      });
+      getBarang(); // Refresh the data after a successful delete.
+    } catch (error) {
+      console.log("Error deleting item:", error);
+>>>>>>> d1d44b75c0bff893d07c78304294f2b0e1d88679
     }
   };
 
@@ -108,12 +121,16 @@ const deleteBarang = async (id) => {
                   >
                     Edit
                   </Link>
+<<<<<<< HEAD
                   <button
                     onClick={() => deleteBarang(barang._id)}
                     className="button is-danger is-small"
                   >
                     Delete
                   </button>
+=======
+                  <button onClick={() => deleteBarang(BarangModel._id)} className="button is-danger is-small">Delete</button>
+>>>>>>> d1d44b75c0bff893d07c78304294f2b0e1d88679
                 </td>
               </tr>
             ))}
