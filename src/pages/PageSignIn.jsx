@@ -4,11 +4,16 @@ import { useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import AdminModel from "../../models/AdminModel";
 import { useNavigate } from "react-router-dom";
-import classes from './background.module.css'
+import classes from "./background.module.css";
 
 const PageSignIn = () => {
   let navigate = useNavigate();
   const [user, setUser] = useState(AdminModel);
+  const [showPassword, setShowPassword] = useState(false)
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword)
+  }
 
   const handleInput = (e) => {
     const name = e.target.name;
@@ -33,10 +38,10 @@ const PageSignIn = () => {
       }
 
       const content = await response.json();
-      localStorage.setItem("token", content.token)
-      console.log(content)
-      console.log(content.token)
-      return navigate("/list")
+      localStorage.setItem("token", content.token);
+      console.log(content);
+      console.log(content.token);
+      return navigate("/list");
     } catch (error) {
       alert(error.message);
     }
@@ -66,16 +71,21 @@ const PageSignIn = () => {
                     value={user.password}
                     onChange={handleInput}
                     name="password"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="Enter your password"
                   />
                 </Form.Group>
-
-                <div className="d-grid gap-2">
+                <Form.Check
+                  type="checkbox"
+                  label="Lihat Password"
+                  id={`lihat-password`}
+                  onChange={toggleShowPassword}
+                />
+                <Form.Group className="d-grid gap-2">
                   <Button onClick={signin} variant="primary">
                     Sign In
                   </Button>
-                </div>
+                </Form.Group>
               </Card.Body>
             </Card>
           </Col>
