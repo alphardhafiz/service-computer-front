@@ -44,11 +44,11 @@ const PageContact = () => {
             </form>
           </div>
         </div>
-        <div className="col-lg-12">
-          <div className="card mt-4 border-0 mb-4">
-            <div className="row">
+        <div className="col-lg-13">
+          <div className="card mt-4 border-0 mb-4" >
+            <div className="row" >
               <div className="col-lg-4 col-md-4">
-                <div className="card-body d-flex align-items-center c-detail pl-0">
+                <div className="card-body d-flex align-items-center c-detail pl-0" >
                   <div className="mr-3 align-self-center">
                     <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon1.png"/>
                   </div>
