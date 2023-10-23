@@ -67,12 +67,12 @@ const deleteBarang = async (id) => {
         <Link
           to="/list/add"
           className="btn btn-success position-relative "
-          style={{ left: "10px" }}
+          style={{ left: "1rem", bottom:"1rem" }}
         >
           Tambah Data
         </Link>
         <table className="table is-striped is-fullwidth mt-2">
-          <thead>
+          <thead style={{backgroundColor:'green', color:'white'}}>
             <tr>
               <th>No</th>
               <th>Nama Barang</th>
@@ -104,8 +104,7 @@ const deleteBarang = async (id) => {
                 <td>
                   <Link
                     to={`edit/${BarangModel._id}`}
-                    className="button is-info is-small mr-1"
-                  >
+                    className="btn is-info is-small">
                     Edit
                   </Link>
                   <button onClick={() => deleteBarang(BarangModel._id)} className="button is-danger is-small">Delete</button>

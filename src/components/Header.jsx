@@ -29,7 +29,7 @@ function Header() {
             </Link>
             <Link
               to="/contact"
-              className="text-decoration-none fw-bolder text-primary"
+              className="btn text-decoration-none btn-outline-light fw-bolder text-primary"
             >
               Contact
             </Link>
@@ -38,8 +38,9 @@ function Header() {
 
           <Navbar.Collapse className="justify-content-end">
             {isAdmin && (
-              <Nav.Link>
-                <Link to="/list" className="text-decoration-none">
+              <Nav.Link style={{right:"10rem"}}>
+                <Link to="/list" className="btn btn-outline-danger 
+                text-decoration-none position-relative" style={{right:'2rem'}}>
                   List Barang
                 </Link>
               </Nav.Link>
@@ -52,7 +53,7 @@ function Header() {
               <Link to="/signin">
                 <Button
                   variant="warning position-relative"
-                  style={{ right: "300 rem" }}
+                  style={{ right: "100 rem" }}
                 >
                   Sign in
                 </Button>
