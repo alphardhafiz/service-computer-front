@@ -37,6 +37,30 @@ const PageList = () => {
     getBarang();
   }, []);
 
+const deleteBarang = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/barang/${id}`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("token"),
+        },
+      });
+      getUsers();
+
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+
+      const content = await response.json();
+      console.log(content);
+      setBarang(content);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <div className="columns mt-5">
       <div className="column is-half">
@@ -84,6 +108,12 @@ const PageList = () => {
                   >
                     Edit
                   </Link>
+                  <button
+                    onClick={() => deleteBarang(barang._id)}
+                    className="button is-danger is-small"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
