@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import PageBarang from "./pages/PageBarang";
 import PageEdit from "./pages/PageEdit";
 import PageListCustomer from "./pages/PageListCustomer";
+import PageContact from "./pages/PageContact";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/barangCustomer/:noHp" element={<PageListCustomer />} />
           <Route path="/list/add" element={<PageBarang />} />
           <Route path="/list/edit/:id" element={<PageEdit />} />
+          <Route path="/contact" element={<PageContact />} />
         </Route>
 
         <Route path="/signin" element={<PageSignIn />} />
