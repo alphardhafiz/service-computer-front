@@ -22,6 +22,7 @@ const PageEdit = () => {
     setHarga(response.data.harga);
     setNamaCustomer(response.data.namaCustomer);
     setHpCustomer(response.data.hpCustomer);
+    console.log(response.data);
   };
 
   const updateBarang = async (e) => {
@@ -51,7 +52,7 @@ const PageEdit = () => {
                 type="text"
                 className="input"
                 value={namaBarang}
-                onChange={(e) => setnamaBarang(e.target.value)}
+                onChange={(e) => setNamaBarang(e.target.value)}
                 placeholder="namaBarang"
               />
             </div>
@@ -64,7 +65,7 @@ const PageEdit = () => {
                 className="input"
                 name="tipeKerusakan"
                 value={tipeKerusakan}
-                onChange={(e) => settipeKerusakan(e.target.value)}
+                onChange={(e) => setTipeKerusakan(e.target.value)}
                 placeholder="tipeKerusakan"
              />
             </div>
@@ -77,7 +78,7 @@ const PageEdit = () => {
                 className="input"
                 name="harga"
                 value={harga}
-                onChange={(e) => setharga(e.target.value)}
+                onChange={(e) => setHarga(e.target.value)}
                 placeholder="harga"
               />
             </div>
@@ -90,7 +91,7 @@ const PageEdit = () => {
                 className="input"
                 name="namaCustomer"
                 value={namaCustomer}
-                onChange={(e) => setnamaCustomer(e.target.value)}
+                onChange={(e) => setNamaCustomer(e.target.value)}
                 placeholder="namaCustomer"
               />
             </div>
@@ -103,7 +104,7 @@ const PageEdit = () => {
                 className="input"
                 name="hpCustomer"
                 value={hpCustomer}
-                onChange={(e) => sethpCustomer(e.target.value)}
+                onChange={(e) => setHpCustomer(e.target.value)}
                 placeholder="hpCustomer"
              />
             </div>
