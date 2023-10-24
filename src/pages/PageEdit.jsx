@@ -15,14 +15,14 @@ const PageEdit = () => {
     getBarangById();
   }, []);
 
-  const getBarangById = async () => {
+  const getBarangById = async (id) => {
     const response = await axios.get(`http://localhost:3000/api/barang/${id}`);
-    setNamaBarang(response.data.namaBarang);
+    setNamaBarang(response.data[0].namaBarang);
     setTipeKerusakan(response.data.tipeKerusakan);
     setHarga(response.data.harga);
     setNamaCustomer(response.data.namaCustomer);
     setHpCustomer(response.data.hpCustomer);
-    console.log(response.data);
+    console.log(response.data[0]);
   };
 
   const updateBarang = async (e) => {
