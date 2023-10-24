@@ -4,10 +4,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Logo from "../assets/logo.png";
-import { Link, redirect } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import CheckAdmin from "../utils/CheckAdmin";
 
 function Header() {
+  const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
     setIsAdmin(CheckAdmin(localStorage.getItem("token")));
@@ -15,8 +16,8 @@ function Header() {
 
   const logout = () => {
     localStorage.removeItem("token");
-    window.location.reload();
     navigate("/");
+    window.location.reload();
   };
 
   return (
