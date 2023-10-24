@@ -37,16 +37,27 @@ const PageList = () => {
     getBarang();
   }, []);
 
-  const deleteBarang = async (id) => {
+const deleteBarang = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/barang/${id}`, {
+      const response = await fetch(`http://localhost:3000/api/barang/${id}`, {
+        method: "GET",
         headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
           "x-access-token": localStorage.getItem("token"),
         },
       });
-      getBarang(); // Refresh the data after a successful delete.
+      getUsers();
+
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+
+      const content = await response.json();
+      console.log(content);
+      setBarang(content);
     } catch (error) {
-      console.log("Error deleting item:", error);
+      console.log(error.message);
     }
   };
 
@@ -56,12 +67,12 @@ const PageList = () => {
         <Link
           to="/list/add"
           className="btn btn-success position-relative "
-          style={{ left: "10px" }}
+          style={{ left: "1rem", bottom:"1rem" }}
         >
           Tambah Data
         </Link>
         <table className="table is-striped is-fullwidth mt-2">
-          <thead>
+          <thead style={{backgroundColor:'green', color:'white'}}>
             <tr>
               <th>No</th>
               <th>Nama Barang</th>
@@ -93,8 +104,7 @@ const PageList = () => {
                 <td>
                   <Link
                     to={`edit/${BarangModel._id}`}
-                    className="button is-info is-small mr-1"
-                  >
+                    className="btn is-info is-small">
                     Edit
                   </Link>
                   <button onClick={() => deleteBarang(BarangModel._id)} className="button is-danger is-small">Delete</button>

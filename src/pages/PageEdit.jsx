@@ -17,24 +17,39 @@ const PageEdit = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const config = {
-          headers: {
-            "x-access-token": token,
-          },
-        };
-        const response = await axios.get(`http://localhost:3000/api/barang/${id}`, config);
-        const data = response.data;
-        setInitialData(data);
-        setFormData(data);
-      } catch (error) {
-        console.log(error);
-      }
+    getBarangById();
+  }, []);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const token = localStorage.getItem("token");
+  //       const config = {
+  //         headers: {
+  //           "x-access-token": token,
+  //         },
+  //       };
+  //       const response = await axios.get(`http://localhost:3000/api/barang/${id}`, config);
+  //       const data = response.data;
+  //       setNamaBarang(data.namaBarang);
+  //       setTipeKerusakan(data.tipeKerusakan);
+  //       setHarga(data.harga);
+  //       setHpCustomer(data.hpCustomer);
+  //       setNamaCustomer(data.namaCustomer);
+  //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   };
+    //   fetchData();
+    // }, [id]);
+    
+    const getBarangById = () => {
+      const [namaBarang, setNamaBarang] = useState("");
+      const [tipeKerusakan, setTipeKerusakan] = useState("");
+      const [harga, setHarga] = useState("");
+      const [hpCustomer, setHpCustomer] = useState("");
+      const [namaCustomer, setNamaCustomer] = useState("");
     };
-    fetchData();
-  }, [id]);
 
   const updateBarang = async (e) => {
     e.preventDefault();
