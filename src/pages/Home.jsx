@@ -12,11 +12,9 @@ const Home = () => {
         <div className="justify-content-center">
           <div className="col-xl-12">
             <div className="text-center text-white">
-              <br />
               <h1 className="mb-5" style={{ textAlign: 'center' }}>
                 Selamat Datang Di Service Juara Koding
               </h1>
-              <br />
 
               <Container>
                 <div className="mb-3">

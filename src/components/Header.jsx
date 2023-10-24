@@ -24,7 +24,7 @@ function Header() {
     <>
       <Navbar className="bg-body-primary" bg="info" data-bs-theme="info">
         <Container>
-          <Navbar.Brand className="d-flex justify-content-start align-items-center gap-5">
+          <Navbar.Brand className="d-flex justify-content-start align-items-center gap-4">
             <Link to="/">
               <img src={Logo} alt="logo" height={80} />
             </Link>
@@ -34,24 +34,25 @@ function Header() {
             >
               Contact
             </Link>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-
-          <Navbar.Collapse>
-            {isAdmin && (
+      {isAdmin && (
                 <Link to="/list" className="btn btn-outline-primary text-light
-                text-decoration-none justify-content-mid">
+                text-decoration-none">
                   List Barang
                 </Link>
             )}
+          </Navbar.Brand>
+          <Navbar.Toggle />
+
+          <Navbar.Collapse className="d-flex justify-content-end">
+            
             {isAdmin ? (
-              <Button onClick={logout} variant="outline-danger" className="d-flex justify-content-end">
+              <Button onClick={logout} variant="outline-danger">
                 Logout
               </Button>
             ) : (
               <Link to="/signin">
                 <Button
-                  variant="warning" className="d-flex justify-content-end"
+                  variant="warning"
                 >
                   Sign in
                 </Button>
