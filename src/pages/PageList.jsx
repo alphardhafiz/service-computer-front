@@ -94,7 +94,7 @@ const PageList = () => {
                 <td>
                   <Link
                     to={`edit/${BarangModel._id}`}
-                    className="btn is-info is-small">
+                    className="button is-danger is-small mx-2">
                     Edit
                   </Link>
                   <button onClick={() => deleteBarang(BarangModel._id)} className="button is-danger is-small">Delete</button>

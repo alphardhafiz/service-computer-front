@@ -3,11 +3,13 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 const PageEdit = () => {
-  const [namaBarang, setnamaBarang] = useState("");
-  const [tipeKerusakan, settipeKerusakan] = useState("");
-  const [harga, setharga] = useState("");
-  const [namaCustomer, setnamaCustomer] = useState("");
-  const [hpCustomer, sethpCustomer] = useState("");
+  const [namaBarang, setNamaBarang] = useState("");
+  const [tipeKerusakan, setTipeKerusakan] = useState("");
+  const [harga, setHarga] = useState("");
+  const [namaCustomer, setNamaCustomer] = useState("");
+  const [hpCustomer, setHpCustomer] = useState("");
+  const navigate = useNavigate();
+  const { id } = useParams();
     
   useEffect(() => {
     getBarangById();
@@ -15,11 +17,11 @@ const PageEdit = () => {
 
   const getBarangById = async () => {
     const response = await axios.get(`http://localhost:3000/api/barang/${id}`);
-    setnamaBarang(response.data.namaBarang);
-    settipeKerusakan(response.data.tipeKerusakan);
-    setharga(response.data.harga);
-    setnamaCustomer(response.data.namaCustomer);
-    sethpCustomer(response.data.hpCustomer);
+    setNamaBarang(response.data.namaBarang);
+    setTipeKerusakan(response.data.tipeKerusakan);
+    setHarga(response.data.harga);
+    setNamaCustomer(response.data.namaCustomer);
+    setHpCustomer(response.data.hpCustomer);
   };
 
   const updateBarang = async (e) => {
@@ -48,9 +50,9 @@ const PageEdit = () => {
               <input
                 type="text"
                 className="input"
-                name="namaBarang"
                 value={namaBarang}
                 onChange={(e) => setnamaBarang(e.target.value)}
+                placeholder="namaBarang"
               />
             </div>
           </div>
@@ -63,7 +65,8 @@ const PageEdit = () => {
                 name="tipeKerusakan"
                 value={tipeKerusakan}
                 onChange={(e) => settipeKerusakan(e.target.value)}
-              />
+                placeholder="tipeKerusakan"
+             />
             </div>
           </div>
           <div className="field">
@@ -75,6 +78,7 @@ const PageEdit = () => {
                 name="harga"
                 value={harga}
                 onChange={(e) => setharga(e.target.value)}
+                placeholder="harga"
               />
             </div>
           </div>
@@ -87,6 +91,7 @@ const PageEdit = () => {
                 name="namaCustomer"
                 value={namaCustomer}
                 onChange={(e) => setnamaCustomer(e.target.value)}
+                placeholder="namaCustomer"
               />
             </div>
           </div>
@@ -99,7 +104,8 @@ const PageEdit = () => {
                 name="hpCustomer"
                 value={hpCustomer}
                 onChange={(e) => sethpCustomer(e.target.value)}
-              />
+                placeholder="hpCustomer"
+             />
             </div>
           </div>
           <div className="field">
