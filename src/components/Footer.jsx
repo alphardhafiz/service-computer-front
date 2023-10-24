@@ -1,14 +1,33 @@
 import React from "react";
 
-const Footer = () => {
+function Footer({ children }) {
   return (
-    <div style={{backgroundColor:'black', color:'white', width:'100%'}}>
+      <div>
+          <div style={phantom} />
+          <div style={style}>
+              copyright by kelompok 1
+          </div>
+      </div>
+  )
+};
 
-    <h2 style={{textAlign:'center'}}>copyright by kelompok 1</h2>
+var style = {
+  backgroundColor: "#F8F8F8",
+  borderTop: "1px solid #E7E7E7",
+  textAlign: "center",
+  padding: "20px",
+  position: "fixed",
+  bottom: "0",
+  width: "100%",
+  backgroundColor:"black",
+  color:"white"
+};
 
-
-    </div>
-  );
+var phantom = {
+  display: 'block',
+  padding: '20px',
+  height: '60px',
+  width: '100%',
 };
 
 export default Footer;

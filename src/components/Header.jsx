@@ -30,7 +30,7 @@ function Header() {
             </Link>
             <Link
               to="/contact"
-              className="btn text-decoration-none btn-outline-light fw-bolder text-primary"
+              className="btn text-decoration-none btn-outline-primary text-light"
             >
               Contact
             </Link>
@@ -39,8 +39,8 @@ function Header() {
 
           <Navbar.Collapse className="justify-content-end">
             {isAdmin && (
-                <Link to="/list" className="btn btn-outline-danger 
-                text-decoration-none position-relative" style={{right:'2rem'}}>
+                <Link to="/list" className="btn btn-outline-primary text-light
+                text-decoration-none position-relative" style={{right:'55rem'}}>
                   List Barang
                 </Link>
             )}
