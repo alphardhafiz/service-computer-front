@@ -38,12 +38,10 @@ function Header() {
 
           <Navbar.Collapse className="justify-content-end">
             {isAdmin && (
-              <Nav.Link style={{right:"10rem"}}>
                 <Link to="/list" className="btn btn-outline-danger 
                 text-decoration-none position-relative" style={{right:'2rem'}}>
                   List Barang
                 </Link>
-              </Nav.Link>
             )}
             {isAdmin ? (
               <Button onClick={logout} variant="outline-danger">
