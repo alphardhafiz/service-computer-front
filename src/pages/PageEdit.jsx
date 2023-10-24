@@ -3,42 +3,61 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 const PageEdit = () => {
-  const [namaBarang, setNamaBarang] = useState("");
-  const [tipeKerusakan, setTipeKerusakan] = useState("");
-  const [harga, setHarga] = useState("");
-  const [namaCustomer, setNamaCustomer] = useState("");
-  const [hpCustomer, setHpCustomer] = useState("");
-  const navigate = useNavigate();
   const { id } = useParams();
-    
+  const [initialData, setInitialData] = useState({
+    namaBarang: "",
+    tipeKerusakan: "",
+    harga: "",
+    hpCustomer: "",
+    namaCustomer: "",
+  });
+
+  const [formData, setFormData] = useState({ ...initialData });
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     getBarangById();
   }, []);
 
-  const getBarangById = async (id) => {
-    const response = await axios.get(`http://localhost:3000/api/barang/${id}`);
-    setNamaBarang(response.data[0].namaBarang);
-    setTipeKerusakan(response.data.tipeKerusakan);
-    setHarga(response.data.harga);
-    setNamaCustomer(response.data.namaCustomer);
-    setHpCustomer(response.data.hpCustomer);
-    console.log(response.data[0]);
+  const getBarangById = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          "x-access-token": token,
+        },
+      };
+      const response = await axios.get(`http://localhost:3000/api/barang/${id}`, config);
+      const data = response.data;
+
+      // Set the initial data and form data
+      setInitialData(data);
+      setFormData(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const updateBarang = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:3000/api/barang/${id}`, {
-        namaBarang,
-        tipeKerusakan,
-        harga,
-        namaCustomer,
-        hpCustomer,
-      });
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          "x-access-token": token,
+        },
+      };
+      await axios.put(`http://localhost:3000/api/barang/${id}`, formData, config);
       navigate("/list");
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   return (
@@ -51,9 +70,9 @@ const PageEdit = () => {
               <input
                 type="text"
                 className="input"
-                value={namaBarang}
-                onChange={(e) => setNamaBarang(e.target.value)}
-                placeholder="namaBarang"
+                name="namaBarang"
+                value={formData.namaBarang}
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -64,10 +83,9 @@ const PageEdit = () => {
                 type="text"
                 className="input"
                 name="tipeKerusakan"
-                value={tipeKerusakan}
-                onChange={(e) => setTipeKerusakan(e.target.value)}
-                placeholder="tipeKerusakan"
-             />
+                value={formData.tipeKerusakan}
+                onChange={handleInputChange}
+              />
             </div>
           </div>
           <div className="field">
@@ -77,9 +95,8 @@ const PageEdit = () => {
                 type="text"
                 className="input"
                 name="harga"
-                value={harga}
-                onChange={(e) => setHarga(e.target.value)}
-                placeholder="harga"
+                value={formData.harga}
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -90,9 +107,8 @@ const PageEdit = () => {
                 type="text"
                 className="input"
                 name="namaCustomer"
-                value={namaCustomer}
-                onChange={(e) => setNamaCustomer(e.target.value)}
-                placeholder="namaCustomer"
+                value={formData.namaCustomer}
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -103,10 +119,9 @@ const PageEdit = () => {
                 type="text"
                 className="input"
                 name="hpCustomer"
-                value={hpCustomer}
-                onChange={(e) => setHpCustomer(e.target.value)}
-                placeholder="hpCustomer"
-             />
+                value={formData.hpCustomer}
+                onChange={handleInputChange}
+              />
             </div>
           </div>
           <div className="field">
