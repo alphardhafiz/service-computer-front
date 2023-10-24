@@ -8,12 +8,12 @@ const Home = () => {
   const [noHp, setNoHp] = useState('')
   return (
     <>
-      <div className="masthead">
+      <div className="masthead justify-content-center">
         <div className="justify-content-center">
-          <div className="col-xl-6">
+          <div className="col-xl-12">
             <div className="text-center text-white">
               <br />
-              <h1 className="mb-5" style={{ textAlign: "center" }}>
+              <h1 className="mb-5" style={{ textAlign: 'center' }}>
                 Selamat Datang Di Service Juara Koding
               </h1>
               <br />
@@ -36,7 +36,8 @@ const Home = () => {
                     >
                       Cari
                     </button> */}
-                    <Link to={`/barangCustomer/${noHp}`} className="btn btn-primary">Cari</Link>
+                    <Link to={`/barangCustomer/${noHp}`} className="btn btn-primary 
+                    position-relative px-4 py-3" style={{ right: '4.8rem' }}>Cari</Link>
                   </div>
                 </div>
 

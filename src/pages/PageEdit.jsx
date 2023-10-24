@@ -3,73 +3,39 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 const PageEdit = () => {
-  const { id } = useParams();
-  const [initialData, setInitialData] = useState({
-    namaBarang: "",
-    tipeKerusakan: "",
-    harga: "",
-    hpCustomer: "",
-    namaCustomer: "",
-  });
-
-  const [formData, setFormData] = useState({ ...initialData });
-
-  const navigate = useNavigate();
-
+  const [namaBarang, setnamaBarang] = useState("");
+  const [tipeKerusakan, settipeKerusakan] = useState("");
+  const [harga, setharga] = useState("");
+  const [namaCustomer, setnamaCustomer] = useState("");
+  const [hpCustomer, sethpCustomer] = useState("");
+    
   useEffect(() => {
     getBarangById();
   }, []);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const token = localStorage.getItem("token");
-  //       const config = {
-  //         headers: {
-  //           "x-access-token": token,
-  //         },
-  //       };
-  //       const response = await axios.get(`http://localhost:3000/api/barang/${id}`, config);
-  //       const data = response.data;
-  //       setNamaBarang(data.namaBarang);
-  //       setTipeKerusakan(data.tipeKerusakan);
-  //       setHarga(data.harga);
-  //       setHpCustomer(data.hpCustomer);
-  //       setNamaCustomer(data.namaCustomer);
-  //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   };
-    //   fetchData();
-    // }, [id]);
-    
-    const getBarangById = () => {
-      const [namaBarang, setNamaBarang] = useState("");
-      const [tipeKerusakan, setTipeKerusakan] = useState("");
-      const [harga, setHarga] = useState("");
-      const [hpCustomer, setHpCustomer] = useState("");
-      const [namaCustomer, setNamaCustomer] = useState("");
-    };
+  const getBarangById = async () => {
+    const response = await axios.get(`http://localhost:3000/api/barang/${id}`);
+    setnamaBarang(response.data.namaBarang);
+    settipeKerusakan(response.data.tipeKerusakan);
+    setharga(response.data.harga);
+    setnamaCustomer(response.data.namaCustomer);
+    sethpCustomer(response.data.hpCustomer);
+  };
 
   const updateBarang = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem("token");
-      const config = {
-        headers: {
-          "x-access-token": token,
-        },
-      };
-      await axios.put(`http://localhost:3000/api/barang/${id}`, formData, config);
+      await axios.patch(`http://localhost:3000/api/barang/${id}`, {
+        namaBarang,
+        tipeKerusakan,
+        harga,
+        namaCustomer,
+        hpCustomer,
+      });
       navigate("/list");
     } catch (error) {
       console.log(error);
     }
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
   };
 
   return (
@@ -83,8 +49,8 @@ const PageEdit = () => {
                 type="text"
                 className="input"
                 name="namaBarang"
-                value={formData.namaBarang}
-                onChange={handleInputChange}
+                value={namaBarang}
+                onChange={(e) => setnamaBarang(e.target.value)}
               />
             </div>
           </div>
@@ -95,8 +61,8 @@ const PageEdit = () => {
                 type="text"
                 className="input"
                 name="tipeKerusakan"
-                value={formData.tipeKerusakan}
-                onChange={handleInputChange}
+                value={tipeKerusakan}
+                onChange={(e) => settipeKerusakan(e.target.value)}
               />
             </div>
           </div>
@@ -107,8 +73,8 @@ const PageEdit = () => {
                 type="text"
                 className="input"
                 name="harga"
-                value={formData.harga}
-                onChange={handleInputChange}
+                value={harga}
+                onChange={(e) => setharga(e.target.value)}
               />
             </div>
           </div>
@@ -119,8 +85,8 @@ const PageEdit = () => {
                 type="text"
                 className="input"
                 name="namaCustomer"
-                value={formData.namaCustomer}
-                onChange={handleInputChange}
+                value={namaCustomer}
+                onChange={(e) => setnamaCustomer(e.target.value)}
               />
             </div>
           </div>
@@ -131,8 +97,8 @@ const PageEdit = () => {
                 type="text"
                 className="input"
                 name="hpCustomer"
-                value={formData.hpCustomer}
-                onChange={handleInputChange}
+                value={hpCustomer}
+                onChange={(e) => sethpCustomer(e.target.value)}
               />
             </div>
           </div>

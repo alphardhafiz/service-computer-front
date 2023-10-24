@@ -22,7 +22,7 @@ function Header() {
 
   return (
     <>
-      <Navbar className="bg-body-tertiary" bg="info" data-bs-theme="info">
+      <Navbar className="bg-body-primary" bg="info" data-bs-theme="info">
         <Container>
           <Navbar.Brand className="d-flex justify-content-center align-items-center gap-5">
             <Link to="/">
