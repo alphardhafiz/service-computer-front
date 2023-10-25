@@ -30,13 +30,12 @@ function Header() {
             </Link>
             <Link
               to="/contact"
-              className="btn text-decoration-none btn-outline-primary text-light"
+              className="text-white text-decoration-none fw-bold"
             >
               Contact
             </Link>
       {isAdmin && (
-                <Link to="/list" className="btn btn-outline-primary text-light
-                text-decoration-none">
+                <Link to="/list" className="text-white text-decoration-none fw-bold">
                   List Barang
                 </Link>
             )}

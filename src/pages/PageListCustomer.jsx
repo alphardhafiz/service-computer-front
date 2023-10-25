@@ -14,7 +14,7 @@ const PageListCustomer = () => {
 
   const getBarang = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/barang/${noHp}`, {
+      const response = await fetch(`http://localhost:3000/api/barang/customerList/${noHp}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
