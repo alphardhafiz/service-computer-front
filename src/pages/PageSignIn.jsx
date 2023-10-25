@@ -9,11 +9,11 @@ import classes from "./background.module.css";
 const PageSignIn = () => {
   let navigate = useNavigate();
   const [user, setUser] = useState(AdminModel);
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
-    setShowPassword(!showPassword)
-  }
+    setShowPassword(!showPassword);
+  };
 
   const handleInput = (e) => {
     const name = e.target.name;
@@ -39,8 +39,6 @@ const PageSignIn = () => {
 
       const content = await response.json();
       localStorage.setItem("token", content.token);
-      console.log(content);
-      console.log(content.token);
       return navigate("/");
     } catch (error) {
       alert(error.message);
@@ -49,11 +47,14 @@ const PageSignIn = () => {
 
   return (
     <>
-      <form className={`${classes.backhead} vh-100 d-flex justify-content-center align-items-center`}>
-          <Col md={4}>
-            <Card>
-              <Card.Body>
-                <Card.Title className="text-center">Admin Service</Card.Title>
+      <form
+        className={`${classes.backhead} vh-100 d-flex justify-content-center align-items-center`}
+      >
+        <Col md={4}>
+          <Card>
+            <Card.Body>
+              <Card.Title className="text-center">Admin Service</Card.Title>
+              <Form>
                 <Form.Group className="mt-3 mb-3">
                   <Form.Label>Masukkan Email</Form.Label>
                   <Form.Control
@@ -70,7 +71,7 @@ const PageSignIn = () => {
                     value={user.password}
                     onChange={handleInput}
                     name="password"
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
                   />
                 </Form.Group>
@@ -85,9 +86,10 @@ const PageSignIn = () => {
                     Sign In
                   </Button>
                 </Form.Group>
-              </Card.Body>
-            </Card>
-          </Col>
+              </Form>
+            </Card.Body>
+          </Card>
+        </Col>
       </form>
     </>
   );

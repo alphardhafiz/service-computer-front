@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, redirect } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const PageList = () => {
   const [barang, setBarang] = useState([]);
@@ -26,7 +27,6 @@ const PageList = () => {
       }
 
       const content = await response.json();
-      console.log(content);
       setBarang(content);
     } catch (error) {
       console.log(error.message);
@@ -37,6 +37,23 @@ const PageList = () => {
     getBarang();
   }, []);
 
+  const handleChangeStatus = async (target, id) => {
+    const token = localStorage.getItem("token");
+    try {
+      await fetch(`http://localhost:3000/api/barang/${id}/${target}`, {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "x-access-token": token,
+        },
+      });
+      getBarang();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
   const deleteBarang = async (id) => {
     try {
       await axios.delete(`http://localhost:3000/api/barang/${id}`, {
@@ -53,7 +70,7 @@ const PageList = () => {
 
   return (
     <div className="columns mt-5">
-      <div className="column is-half">
+      <div className="column">
         <Link
           to="/list/add"
           className="btn btn-success position-relative "
@@ -61,7 +78,7 @@ const PageList = () => {
         >
           Tambah Data
         </Link>
-        <table className="table is-striped is-fullwidth mt-2">
+        <table className="table mt-2 table-striped table-hover">
           <thead style={{backgroundColor:'green', color:'white'}}>
             <tr>
               <th>No</th>
@@ -72,9 +89,10 @@ const PageList = () => {
               <th>harga</th>
               <th>status</th>
               <th>action</th>
+              <th>Ganti Status</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="table-group-divider">
             {barang.length < 1 && (
               <tr>
                 <td align="center" colSpan={8}>
@@ -91,14 +109,85 @@ const PageList = () => {
                 <td>{BarangModel.hpCustomer}</td>
                 <td>{BarangModel.harga}</td>
                 <td>{BarangModel.status}</td>
-                <td>
+                <td className="d-flex gap-2">
                   <Link
                     to={`edit/${BarangModel._id}`}
-                    className="button is-danger is-small mx-2">
+                    className="btn btn-outline-warning">
                     Edit
                   </Link>
-                  <button onClick={() => deleteBarang(BarangModel._id)} className="button is-danger is-small">Delete</button>
+                  <button onClick={() => deleteBarang(BarangModel._id)} className="btn btn-outline-danger">Delete</button>
                 </td>
+                <td>
+                    {BarangModel.status &&
+                      (() => {
+                        switch (BarangModel.status) {
+                          case "belum dikerjakan":
+                            return (
+                              <Button
+                                variant="primary"
+                                onClick={(e) =>
+                                  handleChangeStatus(
+                                    e.target.innerText.toLowerCase(),
+                                    BarangModel._id
+                                  )
+                                }
+                              >
+                                Dikerjakan
+                              </Button>
+                            );
+                          case "sedang dikerjakan":
+                            return (
+                              <Button
+                                variant="warning"
+                                onClick={(e) =>
+                                  handleChangeStatus(
+                                    e.target.innerText.toLowerCase(),
+                                    BarangModel._id
+                                  )
+                                }
+                              >
+                                Selesai
+                              </Button>
+                            );
+                          case "selesai dikerjakan":
+                            return (
+                              <div className="d-flex gap-2">
+                                <Button
+                                  variant="success"
+                                  onClick={(e) =>
+                                    handleChangeStatus(
+                                      e.target.innerText.toLowerCase(),
+                                      BarangModel._id
+                                    )
+                                  }
+                                >
+                                  Antar
+                                </Button>
+                                <Button
+                                  variant="success"
+                                  onClick={(e) =>
+                                    handleChangeStatus(
+                                      e.target.innerText.toLowerCase(),
+                                      BarangModel._id
+                                    )
+                                  }
+                                >
+                                  Ambil
+                                </Button>
+                              </div>
+                            );
+                          default:
+                            return (
+                              <Button
+                                variant="danger"
+                                onClick={() => deleteBarang(BarangModel._id)}
+                              >
+                                Hapus Barang
+                              </Button>
+                            );
+                        }
+                      })()}
+                  </td>
               </tr>
             ))}
           </tbody>

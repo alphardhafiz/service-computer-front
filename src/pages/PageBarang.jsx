@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Button, Form } from "react-bootstrap";
 
 const PageBarang = () => {
   const [namaBarang, setnamaBarang] = useState("");
@@ -37,73 +38,52 @@ const PageBarang = () => {
   };
 
   return (
-    <div className="columns mt-5">
-      <div className="column">
-        <form onSubmit={saveBarang}>
-          <div className="field">
-            <label className="label">Nama Barang</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={namaBarang}
-                onChange={(e) => setnamaBarang(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">Tipe Kerusakan</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={tipeKerusakan}
-                onChange={(e) => settipeKerusakan(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">harga</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={harga}
-                onChange={(e) => setharga(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">nama customer</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={namaCustomer}
-                onChange={(e) => setnamaCustomer(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">hp customer</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={hpCustomer}
-                onChange={(e) => sethpCustomer(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <div className="control">
-              <button type="submit" className="button is-success">
-                Buat Data
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
+    <div className="columns mt-5 container w-25">
+      <form onSubmit={saveBarang}>
+        <Form.Group className="mb-3">
+          <Form.Label>Nama Barang</Form.Label>
+          <Form.Control
+            type="text"
+            value={namaBarang}
+            onChange={(e) => setnamaBarang(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Tipe Kerusakan</Form.Label>
+          <Form.Control
+            type="text"
+            value={tipeKerusakan}
+            onChange={(e) => settipeKerusakan(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Harga</Form.Label>
+          <Form.Control
+            type="text"
+            value={harga}
+            onChange={(e) => setharga(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Nama Customer</Form.Label>
+          <Form.Control
+            type="text"
+            value={namaCustomer}
+            onChange={(e) => setnamaCustomer(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Hp Customer</Form.Label>
+          <Form.Control
+            type="text"
+            value={hpCustomer}
+            onChange={(e) => sethpCustomer(e.target.value)}
+          />
+        </Form.Group>
+        <Button className="btn btn-success" type="submit">
+          Add
+        </Button>
+      </form>
     </div>
   );
 };

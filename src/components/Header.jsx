@@ -45,13 +45,13 @@ function Header() {
           <Navbar.Collapse className="d-flex justify-content-end">
             
             {isAdmin ? (
-              <Button onClick={logout} variant="outline-danger">
+              <Button onClick={logout} variant="btn btn-danger">
                 Logout
               </Button>
             ) : (
               <Link to="/signin">
                 <Button
-                  variant="warning"
+                  variant="btn btn-warning"
                 >
                   Sign in
                 </Button>

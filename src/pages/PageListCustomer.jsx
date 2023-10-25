@@ -27,7 +27,6 @@ const PageListCustomer = () => {
       }
 
       const content = await response.json();
-      console.log(content);
       setBarang(content);
     } catch (error) {
       console.log(error.message);
@@ -35,7 +34,6 @@ const PageListCustomer = () => {
   };
 
   const handleChangeStatus = async (target, id) => {
-    console.log(id);
     const token = localStorage.getItem("token");
     try {
       await fetch(`http://localhost:3000/api/barang/${id}/${target}`, {
@@ -71,8 +69,8 @@ const PageListCustomer = () => {
 
   return (
     <div className="columns mt-5">
-      <div className="column is-half">
-        <table className="table is-striped is-fullwidth mt-2">
+      <div className="column">
+        <table className="table mt-2 table-striped table-hover">
           <thead>
             <tr>
               <th>No</th>
@@ -85,7 +83,7 @@ const PageListCustomer = () => {
               {isAdmin && <th>Ganti Status</th>}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="table-group-divider">
             {barang.length < 1 && (
               <tr>
                 <td align="center" colSpan={8}>

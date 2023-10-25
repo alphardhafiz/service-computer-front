@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { Button, Form } from "react-bootstrap";
 
 const PageEdit = () => {
   const { id } = useParams();
@@ -28,7 +29,10 @@ const PageEdit = () => {
           "x-access-token": token,
         },
       };
-      const response = await axios.get(`http://localhost:3000/api/barang/${id}`, config);
+      const response = await axios.get(
+        `http://localhost:3000/api/barang/${id}`,
+        config
+      );
       const data = response.data;
 
       // Set the initial data and form data
@@ -48,7 +52,11 @@ const PageEdit = () => {
           "x-access-token": token,
         },
       };
-      await axios.put(`http://localhost:3000/api/barang/${id}`, formData, config);
+      await axios.put(
+        `http://localhost:3000/api/barang/${id}`,
+        formData,
+        config
+      );
       navigate("/list");
     } catch (error) {
       console.log(error);
@@ -61,79 +69,58 @@ const PageEdit = () => {
   };
 
   return (
-    <div className="columns mt-5">
-      <div className="column">
+      <div className="container mt-5 w-50">
         <form onSubmit={updateBarang}>
-          <div className="field">
-            <label className="label">Nama Barang</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                name="namaBarang"
-                value={formData.namaBarang}
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">Tipe Kerusakan</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                name="tipeKerusakan"
-                value={formData.tipeKerusakan}
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">Harga</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                name="harga"
-                value={formData.harga}
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">Nama Customer</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                name="namaCustomer"
-                value={formData.namaCustomer}
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">HP Customer</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                name="hpCustomer"
-                value={formData.hpCustomer}
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <div className="control">
-              <button type="submit" className="button is-success">
-                Update Data
-              </button>
-            </div>
-          </div>
+          <Form.Group className="mb-3">
+            <Form.Label>Nama Barang</Form.Label>
+            <Form.Control
+              type="text"
+              name="namaBarang"
+              value={formData.namaBarang}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Tipe Kerusakan</Form.Label>
+            <Form.Control
+              type="text"
+              name="tipeKerusakan"
+              value={formData.tipeKerusakan}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Harga</Form.Label>
+            <Form.Control
+              type="text"
+              name="harga"
+              value={formData.harga}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Nama Customer</Form.Label>
+            <Form.Control
+              type="text"
+              name="namaCustomer"
+              value={formData.namaCustomer}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Hp Barang</Form.Label>
+            <Form.Control
+              type="text"
+              name="hpCustomer"
+              value={formData.hpCustomer}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+          <Button className="btn btn-success" type="submit">
+            Update Data
+          </Button>
         </form>
       </div>
-    </div>
   );
 };
 
