@@ -38,6 +38,9 @@ const PageBarang = () => {
   };
 
   return (
+    <div style={{
+      backgroundColor: `magenta`
+    }}>
     <div className="columns mt-5 container w-25">
       <form onSubmit={saveBarang}>
         <Form.Group className="mb-3">
@@ -84,6 +87,7 @@ const PageBarang = () => {
           Add
         </Button>
       </form>
+    </div>
     </div>
   );
 };

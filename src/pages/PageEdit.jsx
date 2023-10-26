@@ -69,7 +69,9 @@ const PageEdit = () => {
   };
 
   return (
-      <div className="container mt-5 w-50">
+    <div style={{
+      backgroundColor: `magenta` }} className="mt-5">
+      <div className="container w-50">
         <form onSubmit={updateBarang}>
           <Form.Group className="mb-3">
             <Form.Label>Nama Barang</Form.Label>
@@ -120,6 +122,7 @@ const PageEdit = () => {
             Update Data
           </Button>
         </form>
+      </div>
       </div>
   );
 };

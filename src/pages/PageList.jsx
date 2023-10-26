@@ -78,8 +78,8 @@ const PageList = () => {
         >
           Tambah Data
         </Link>
-        <table className="table mt-2 table-striped table-hover">
-          <thead style={{backgroundColor:'green', color:'white'}}>
+        <table className="table mt-2 table-striped table-hover table-info">
+          <thead className="thead thead-primary">
             <tr>
               <th>No</th>
               <th>Nama Barang</th>
