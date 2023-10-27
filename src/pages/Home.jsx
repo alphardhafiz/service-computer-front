@@ -56,7 +56,7 @@ const Home = () => {
               <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                 <img
                   className="img-fluid "
-                  src="src/assets/test1.jpeg"
+                  src="src/assets/132.jpg"
                   alt="..."
                 />
                 <h3>Teknisi Yang Berpengalaman</h3>
@@ -69,7 +69,7 @@ const Home = () => {
               <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                 <img
                   className="img-fluid "
-                  src="src/assets/test2.jpg"
+                  src="src/assets/1111.jpg"
                   alt="..."
                 />
                 <h3>Bisa Cek Progress Teknisi</h3>
@@ -79,7 +79,7 @@ const Home = () => {
               </div>
             </div>
             <div className="col-lg-4">
-              <div className="features-icons-item mx-auto mb-0 mb-lg-3">
+              <div className="features-icons-item mx-auto mb-5 mb-lg-0">
                 <img
                   className="img-fluid "
                   src="src/assets/test3.jpg"
@@ -117,7 +117,7 @@ const Home = () => {
               <div className="testimonial-item mx-auto mb-5 mb-lg-0">
                 <img
                   className="img-fluid rounded-circle mb-3"
-                  src="src/assets/testi3.jpeg"
+                  src="src/assets/test132.jpg"
                   alt="..."
                 />
                 <h5>Deddy Cobuzer</h5>
