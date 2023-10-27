@@ -95,7 +95,7 @@ const PageList = () => {
           <tbody className="table-group-divider">
             {barang.length < 1 && (
               <tr>
-                <td align="center" colSpan={8}>
+                <td align="center" colSpan={10}>
                   Barang Service Tidak Ada
                 </td>
               </tr>
