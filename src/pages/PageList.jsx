@@ -73,14 +73,14 @@ const PageList = () => {
       <div className="column">
         <Link
           to="/list/add"
-          className="btn btn-success position-relative "
+          className="btn btn-success position-relative" 
           style={{ left: "1rem", bottom:"1rem" }}
         >
           Tambah Data
         </Link>
-        <table className="table mt-2 table-striped table-hover table-info">
-          <thead className="thead thead-primary">
-            <tr>
+        <table className="table mt-2 table-striped table-hover">
+          <thead>
+            <tr className="table-success">
               <th>No</th>
               <th>Nama Barang</th>
               <th>Tipe Kerusakan</th>
@@ -101,7 +101,7 @@ const PageList = () => {
               </tr>
             )}
             {barang.map((BarangModel, index) => (
-              <tr key={BarangModel._id}>
+              <tr key={BarangModel._id} className="table-dark">
                 <td>{index + 1}</td>
                 <td>{BarangModel.namaBarang}</td>
                 <td>{BarangModel.tipeKerusakan}</td>
@@ -112,10 +112,10 @@ const PageList = () => {
                 <td className="d-flex gap-2">
                   <Link
                     to={`edit/${BarangModel._id}`}
-                    className="btn btn-outline-warning">
+                    className="btn btn-warning">
                     Edit
                   </Link>
-                  <button onClick={() => deleteBarang(BarangModel._id)} className="btn btn-outline-danger">Delete</button>
+                  <button onClick={() => deleteBarang(BarangModel._id)} className="btn btn-danger">Delete</button>
                 </td>
                 <td>
                     {BarangModel.status &&

@@ -50,16 +50,18 @@ const Home = () => {
       <section className="features-icons bg-light text-center">
         <div className="container">
           <div className="row">
+          <h1 className="mb-5">Layanan Dari Kami</h1>
             <div className="col-lg-4">
+              
               <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                 <img
                   className="img-fluid "
-                  src="src/assets/logo.png"
+                  src="src/assets/test1.jpeg"
                   alt="..."
                 />
-                <h3>Fully Responsive</h3>
+                <h3>Teknisi Yang Berpengalaman</h3>
                 <p className="lead mb-0">
-                  This theme will look great on any device, no matter the size!
+                  teknisi kami berpengalaman dalam memperbaiki barang anda
                 </p>
               </div>
             </div>
@@ -67,12 +69,12 @@ const Home = () => {
               <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                 <img
                   className="img-fluid "
-                  src="src/assets/logo.png"
+                  src="src/assets/test2.jpg"
                   alt="..."
                 />
-                <h3>Bootstrap 5 Ready</h3>
+                <h3>Bisa Cek Progress Teknisi</h3>
                 <p className="lead mb-0">
-                  Featuring the latest build of the new Bootstrap 5 framework!
+                  customer bisa cek progress teknisi kami melalui hp
                 </p>
               </div>
             </div>
@@ -80,13 +82,12 @@ const Home = () => {
               <div className="features-icons-item mx-auto mb-0 mb-lg-3">
                 <img
                   className="img-fluid "
-                  src="src/assets/logo.png"
+                  src="src/assets/test3.jpg"
                   alt="..."
                 />
-                <h3>Easy to Use</h3>
+                <h3>Dapat Diantar Atau Ambil Sendiri</h3>
                 <p className="lead mb-0">
-                  Ready to use with your own content, or customize the source
-                  files!
+                  setelah selesai, customer bisa mengambil barangnya sendiri atau diantar
                 </p>
               </div>
             </div>
@@ -96,18 +97,19 @@ const Home = () => {
 
       <section className="testimonials text-center bg-light">
         <div className="container">
-          <h2 className="mb-5">Testimonial...</h2>
+          <h2 className="mb-5">Testimonial From Customer</h2>
           <div className="row">
             <div className="col-lg-4">
               <div className="testimonial-item mx-auto mb-5 mb-lg-0">
                 <img
                   className="img-fluid rounded-circle mb-3"
-                  src="src/assets/testimonials-1.jpg"
+                  src="src/assets/testi1.jpg"
                   alt="..."
                 />
-                <h5>Margaret E.</h5>
+                <h5>Raffi Ahmad</h5>
                 <p className="font-weight-light mb-0">
-                  "This is fantastic! Thanks so much guys!"
+                  Aplikasinya Mantul nih, kapan kapan kalau rusak lagi komputer keluarga
+                  saya langsung dibenerin aja disini
                 </p>
               </div>
             </div>
@@ -115,13 +117,12 @@ const Home = () => {
               <div className="testimonial-item mx-auto mb-5 mb-lg-0">
                 <img
                   className="img-fluid rounded-circle mb-3"
-                  src="src/assets/testimonials-2.jpg"
+                  src="src/assets/testi3.jpeg"
                   alt="..."
                 />
-                <h5>Fred S.</h5>
+                <h5>Deddy Cobuzer</h5>
                 <p className="font-weight-light mb-0">
-                  "Bootstrap is amazing. I've been using it to create lots of
-                  super nice landing pages."
+                  Kalau dari aku yes sih, soalnya aplikasi ini ada potensinya
                 </p>
               </div>
             </div>
@@ -129,13 +130,12 @@ const Home = () => {
               <div className="testimonial-item mx-auto mb-5 mb-lg-0">
                 <img
                   className="img-fluid rounded-circle mb-3"
-                  src="src/assets/testimonials-3.jpg"
+                  src="src/assets/testi3.jpg"
                   alt="..."
                 />
-                <h5>Sarah W.</h5>
+                <h5>Maudy Ayunda</h5>
                 <p className="font-weight-light mb-0">
-                  "Thanks so much for making these free resources available to
-                  us!"
+                  for me this app need some improvement, but its already run smoothly
                 </p>
               </div>
             </div>

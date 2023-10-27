@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 
+
 const PageEdit = () => {
   const { id } = useParams();
   const [initialData, setInitialData] = useState({
@@ -70,11 +71,11 @@ const PageEdit = () => {
 
   return (
     <div style={{
-      backgroundColor: `magenta` }} className="mt-5">
-      <div className="container w-50">
+      backgroundColor: `magenta` }} className="">
+      <div className="container w-25">
         <form onSubmit={updateBarang}>
           <Form.Group className="mb-3">
-            <Form.Label>Nama Barang</Form.Label>
+            <Form.Label className="mt-5">Nama Barang</Form.Label>
             <Form.Control
               type="text"
               name="namaBarang"
@@ -118,7 +119,7 @@ const PageEdit = () => {
               onChange={handleInputChange}
             />
           </Form.Group>
-          <Button className="btn btn-success" type="submit">
+          <Button className="btn btn-success mb-5" type="submit">
             Update Data
           </Button>
         </form>

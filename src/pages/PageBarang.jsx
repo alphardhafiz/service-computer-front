@@ -41,10 +41,10 @@ const PageBarang = () => {
     <div style={{
       backgroundColor: `magenta`
     }}>
-    <div className="columns mt-5 container w-25">
+    <div className="columns container w-25">
       <form onSubmit={saveBarang}>
         <Form.Group className="mb-3">
-          <Form.Label>Nama Barang</Form.Label>
+          <Form.Label className="mt-5">Nama Barang</Form.Label>
           <Form.Control
             type="text"
             value={namaBarang}
@@ -83,7 +83,7 @@ const PageBarang = () => {
             onChange={(e) => sethpCustomer(e.target.value)}
           />
         </Form.Group>
-        <Button className="btn btn-success" type="submit">
+        <Button className="btn btn-success mb-5" type="submit">
           Add
         </Button>
       </form>
