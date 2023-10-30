@@ -40,7 +40,7 @@ const PageContact = () => {
       <div className="row no-gutters">
         <div className="container">
           <div className="row">
-            <div className="col-lg-6">
+            <div className="col-lg-6" style={{ paddingLeft: "40px" }}>
               <div className="card-shadow">
                 <img
                   src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/2.jpg"
@@ -48,7 +48,7 @@ const PageContact = () => {
                 />
               </div>
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-6" style={{ paddingRight: "40px" }}>
               <div className="contact-box ml-3">
                 <h1 className="font-weight-light mt-2">Quick Contact</h1>
                 <form onSubmit={sendEmail} className="mt-4">
@@ -131,44 +131,44 @@ const PageContact = () => {
             <div className="col-lg-13">
               <div className="card mt-4 border-0 mb-4">
                 <div className="row">
-                  <div className="col-lg-4 col-md-4">
+                  <div className="col-lg-4 col-md-4" style={{ paddingLeft: "100px" }}>
                     <div className="card-body d-flex align-items-center c-detail pl-0">
                       <div className="mr-3 align-self-center">
                         <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon1.png" />
                       </div>
-                      <div className="">
+                      <div className="" style={{ paddingLeft: "20px" }}>
                         <h6 className="font-weight-medium">Address</h6>
                         <p className="">
-                          601 Sherwood Ave.
-                          <br /> San Bernandino
+                        Bendungan hilir
+                          <br /> Jakarta pusat
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-4 col-md-4">
+                  <div className="col-lg-4 col-md-4" style={{ paddingLeft: "100px" }}>
                     <div className="card-body d-flex align-items-center c-detail">
                       <div className="mr-3 align-self-center">
                         <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon2.png" />
                       </div>
-                      <div className="">
+                      <div className="" style={{ paddingLeft: "20px" }}>
                         <h6 className="font-weight-medium">Phone</h6>
                         <p className="">
-                          251 546 9442
-                          <br /> 630 446 8851
+                        021-9988-9925
+                          <br /> 
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-4 col-md-4">
+                  <div className="col-lg-4 col-md-4" style={{ paddingLeft: "100px" }}>
                     <div className="card-body d-flex align-items-center c-detail">
                       <div className="mr-3 align-self-center">
                         <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon3.png" />
                       </div>
-                      <div className="">
+                      <div className="" style={{ paddingLeft: "20px" }}>
                         <h6 className="font-weight-medium">Email</h6>
                         <p className="">
-                          info@wrappixel.com
-                          <br /> 123@wrappixel.com
+                        Jc323@gmail.com
+                          <br /> 
                         </p>
                       </div>
                     </div>
