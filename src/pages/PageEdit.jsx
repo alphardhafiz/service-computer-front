@@ -71,7 +71,7 @@ const PageEdit = () => {
 
   return (
     <div style={{
-      backgroundColor: `magenta` }} className="">
+      backgroundColor: `white` }} className="">
       <div className="container w-25">
         <form onSubmit={updateBarang}>
           <Form.Group className="mb-3">

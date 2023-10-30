@@ -39,7 +39,7 @@ const PageBarang = () => {
 
   return (
     <div style={{
-      backgroundColor: `magenta`
+      backgroundColor: `white`
     }}>
     <div className="columns container w-25">
       <form onSubmit={saveBarang}>
