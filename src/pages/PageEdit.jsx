@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
+import Swal from 'sweetalert2';
 
 
 const PageEdit = () => {
@@ -44,25 +45,66 @@ const PageEdit = () => {
     }
   };
 
+  // const updateBarang = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const token = localStorage.getItem("token");
+  //     const config = {
+  //       headers: {
+  //         "x-access-token": token,
+  //       },
+  //     };
+  //     await axios.put(
+  //       `http://localhost:3000/api/barang/${id}`,
+  //       formData,
+  //       config
+  //     );
+  //     navigate("/list");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+
   const updateBarang = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem("token");
-      const config = {
-        headers: {
-          "x-access-token": token,
-        },
-      };
-      await axios.put(
-        `http://localhost:3000/api/barang/${id}`,
-        formData,
-        config
-      );
-      navigate("/list");
+      const isConfirmed = await Swal.fire({
+        title: 'Apakah anda yakin edit data sebagai berikut?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Ya',
+        cancelButtonText: 'Tidak, kembali',
+      });
+
+      if (isConfirmed.isConfirmed) {
+        const token = localStorage.getItem("token");
+        const config = {
+          headers: {
+            "x-access-token": token,
+          },
+        };
+
+        await axios.put(`http://localhost:3000/api/barang/${id}`, formData, config);
+
+        Swal.fire({
+          title: 'Barang sudah di edit',
+          icon: 'success',
+        }).then(() => {
+          navigate("/list");
+        });
+      }
     } catch (error) {
+      Swal.fire({
+        title: 'Error',
+        text: 'An error occurred while saving changes',
+        icon: 'error',
+      });
       console.log(error);
     }
   };
+
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
