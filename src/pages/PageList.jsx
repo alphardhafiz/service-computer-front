@@ -171,75 +171,120 @@ const PageList = () => {
                   <button onClick={() => deleteBarang(BarangModel._id)} className="btn btn-danger">Delete</button>
                 </td>
                 <td>
-                    {BarangModel.status &&
-                      (() => {
-                        switch (BarangModel.status) {
-                          case "belum dikerjakan":
-                            return (
-                              <Button
-                                variant="primary"
-                                onClick={(e) =>
-                                  handleChangeStatus(
-                                    e.target.innerText.toLowerCase(),
-                                    BarangModel._id
-                                  )
-                                }
-                              >
-                                Dikerjakan
-                              </Button>
-                            );
-                          case "sedang dikerjakan":
-                            return (
-                              <Button
-                                variant="warning"
-                                onClick={(e) =>
-                                  handleChangeStatus(
-                                    e.target.innerText.toLowerCase(),
-                                    BarangModel._id
-                                  )
-                                }
-                              >
-                                Selesai
-                              </Button>
-                            );
-                          case "selesai dikerjakan":
-                            return (
-                              <div className="d-flex gap-2">
-                                <Button
-                                  variant="success"
-                                  onClick={(e) =>
-                                    handleChangeStatus(
-                                      e.target.innerText.toLowerCase(),
-                                      BarangModel._id
-                                    )
-                                  }
-                                >
-                                  Antar
-                                </Button>
-                                <Button
-                                  variant="success"
-                                  onClick={(e) =>
-                                    handleChangeStatus(
-                                      e.target.innerText.toLowerCase(),
-                                      BarangModel._id
-                                    )
-                                  }
-                                >
-                                  Ambil
-                                </Button>
-                              </div>
-                            );
-                          default:
-                            return (
-                              <Button
-                                variant="danger"
-                                onClick={() => deleteBarang(BarangModel._id)}
-                              >
-                                Hapus Barang
-                              </Button>
-                            );
-                        }
-                      })()}
+                {BarangModel.status &&
+  (() => {
+    switch (BarangModel.status) {
+      case "belum dikerjakan":
+        return (
+          <Button
+            variant="primary"
+            onClick={() => {
+              Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Anda yakin ingin menandai sebagai Sedang Dikerjakan?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Batal',
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  handleChangeStatus("dikerjakan", BarangModel._id);
+                }
+              });
+            }}
+          >
+            Dikerjakan
+          </Button>
+        );
+      case "sedang dikerjakan":
+        return (
+          <Button
+            variant="warning"
+            onClick={() => {
+              Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Anda yakin ingin menandai sebagai Sudah Selesai?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Batal',
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  handleChangeStatus("selesai", BarangModel._id);
+                }
+              });
+            }}
+          >
+            Selesai
+          </Button>
+        );
+      case "selesai dikerjakan":
+        return (
+          <div className="d-flex gap-2">
+            <Button
+              variant="success"
+              onClick={() => {
+                Swal.fire({
+                  title: 'Konfirmasi',
+                  text: 'Anda yakin ingin menandai sebagai Antar?',
+                  icon: 'question',
+                  showCancelButton: true,
+                  confirmButtonText: 'Ya',
+                  cancelButtonText: 'Batal',
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    handleChangeStatus("antar", BarangModel._id);
+                  }
+                });
+              }}
+            >
+              Antar
+            </Button>
+            <Button
+              variant="success"
+              onClick={() => {
+                Swal.fire({
+                  title: 'Konfirmasi',
+                  text: 'Anda yakin ingin menandai sebagai Ambil?',
+                  icon: 'question',
+                  showCancelButton: true,
+                  confirmButtonText: 'Ya',
+                  cancelButtonText: 'Batal',
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    handleChangeStatus("ambil", BarangModel._id);
+                  }
+                });
+              }}
+            >
+              Ambil
+            </Button>
+          </div>
+        );
+      default:
+        return (
+          <Button
+            variant="danger"
+            onClick={() => {
+              Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Anda yakin ingin menghapus barang?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Batal',
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  deleteBarang(BarangModel._id);
+                }
+              });
+            }}
+          >
+            Hapus Barang
+          </Button>
+        );
+    }
+  })()}
                   </td>
               </tr>
             ))}
