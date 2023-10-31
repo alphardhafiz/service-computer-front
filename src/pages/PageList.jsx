@@ -54,18 +54,36 @@ const PageList = () => {
     }
   };
   
+  // const deleteBarang = async (id) => {
+  //   try {
+  //     await axios.delete(`http://localhost:3000/api/barang/${id}`, {
+  //       headers: {
+  //         "x-access-token": localStorage.getItem("token"),
+  //       },
+  //     });
+  //     getBarang(); // Refresh the data after a successful delete.
+  //   } catch (error) {
+  //     console.log("Error deleting item:", error);
+  //   }
+  // };
+
+
   const deleteBarang = async (id) => {
-    try {
-      await axios.delete(`http://localhost:3000/api/barang/${id}`, {
-        headers: {
-          "x-access-token": localStorage.getItem("token"),
-        },
-      });
-      getBarang(); // Refresh the data after a successful delete.
-    } catch (error) {
-      console.log("Error deleting item:", error);
+    const confirmation = window.confirm("Apakah Anda yakin ingin menghapus barang ini?");
+    if (confirmation) {
+      try {
+        await axios.delete(`http://localhost:3000/api/barang/${id}`, {
+          headers: {
+            "x-access-token": localStorage.getItem("token"),
+          },
+        });
+        getBarang(); // Refresh the data after a successful delete.
+      } catch (error) {
+        console.log("Error deleting item:", error);
+      }
     }
   };
+  
 
 
   return (
