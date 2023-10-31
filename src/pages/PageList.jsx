@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, redirect } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import Swal from 'sweetalert2';
 
 const PageList = () => {
   const [barang, setBarang] = useState([]);
@@ -68,18 +69,52 @@ const PageList = () => {
   // };
 
 
+
+
+
+
+
+  // const deleteBarang = async (id) => {
+  //   const confirmation = window.confirm("Apakah Anda yakin ingin menghapus barang ini?");
+  //   if (confirmation) {
+  //     try {
+  //       await axios.delete(`http://localhost:3000/api/barang/${id}`, {
+  //         headers: {
+  //           "x-access-token": localStorage.getItem("token"),
+  //         },
+  //       });
+  //       getBarang(); // Refresh the data after a successful delete.
+  //     } catch (error) {
+  //       console.log("Error deleting item:", error);
+  //     }
+  //   }
+  // };
+
+
+
+
+
   const deleteBarang = async (id) => {
-    const confirmation = window.confirm("Apakah Anda yakin ingin menghapus barang ini?");
-    if (confirmation) {
+    const result = await Swal.fire({
+      title: 'Apakah Anda yakin ingin menghapus barang ini?',
+      showCancelButton: true,
+      confirmButtonText: 'Ya, Hapus',
+      cancelButtonText: 'Batal',
+      icon: 'warning',
+    });
+  
+    if (result.isConfirmed) {
       try {
         await axios.delete(`http://localhost:3000/api/barang/${id}`, {
           headers: {
             "x-access-token": localStorage.getItem("token"),
           },
         });
-        getBarang(); // Refresh the data after a successful delete.
+        await getBarang(); 
+        Swal.fire('Berhasil', 'Barang telah dihapus', 'success');
       } catch (error) {
         console.log("Error deleting item:", error);
+        Swal.fire('Gagal', 'Terjadi kesalahan saat menghapus barang', 'error');
       }
     }
   };
