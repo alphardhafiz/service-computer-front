@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, redirect, useParams } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import CheckAdmin from "../utils/CheckAdmin";
+import Swal from "sweetalert2";
 
 const PageListCustomer = () => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -51,15 +52,27 @@ const PageListCustomer = () => {
   };
 
   const deleteBarang = async (id) => {
-    try {
-      await axios.delete(`http://localhost:3000/api/barang/${id}`, {
-        headers: {
-          "x-access-token": localStorage.getItem("token"),
-        },
-      });
-      getBarang(); // Refresh the data after a successful delete.
-    } catch (error) {
-      console.log("Error deleting item:", error);
+    const result = await Swal.fire({
+      title: 'Apakah Anda yakin ingin menghapus barang ini?',
+      showCancelButton: true,
+      confirmButtonText: 'Ya, Hapus',
+      cancelButtonText: 'Batal',
+      icon: 'warning',
+    });
+  
+    if (result.isConfirmed) {
+      try {
+        await axios.delete(`http://localhost:3000/api/barang/${id}`, {
+          headers: {
+            "x-access-token": localStorage.getItem("token"),
+          },
+        });
+        await getBarang(); 
+        Swal.fire('Berhasil', 'Barang telah dihapus', 'success');
+      } catch (error) {
+        console.log("Error deleting item:", error);
+        Swal.fire('Gagal', 'Terjadi kesalahan saat menghapus barang', 'error');
+      }
     }
   };
 

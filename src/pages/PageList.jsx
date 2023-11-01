@@ -266,18 +266,7 @@ const PageList = () => {
           <Button
             variant="danger"
             onClick={() => {
-              Swal.fire({
-                title: 'Konfirmasi',
-                text: 'Anda yakin ingin menghapus barang?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonText: 'Ya',
-                cancelButtonText: 'Batal',
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  deleteBarang(BarangModel._id);
-                }
-              });
+              deleteBarang(BarangModel._id);
             }}
           >
             Hapus Barang
