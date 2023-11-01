@@ -113,7 +113,7 @@ const PageEdit = () => {
   };
 
   return (
-    <form
+    <div
     className={`${classes.backhead} vh-100 d-flex justify-content-center align-items-center`}
   >
       <div className="container w-25" style={{color:'white', fontWeight:'bold'}}>
@@ -176,7 +176,7 @@ const PageEdit = () => {
               </Link>
         </form>
       </div>
-</form>
+    </div>
   );
 };
 

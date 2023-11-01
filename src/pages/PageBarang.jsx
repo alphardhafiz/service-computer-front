@@ -39,7 +39,7 @@ const PageBarang = () => {
   };
 
   return (
-    <form
+    <div
     className={`${classes.backhead} vh-100 d-flex justify-content-center align-items-center`}
   >
     <div className="columns container w-25" style={{color:'white', fontWeight:'bold'}}>
@@ -97,7 +97,7 @@ const PageBarang = () => {
               </Link>
       </form>
     </div>
-    </form>
+    </div>
   );
 };
 
