@@ -17,11 +17,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/list" element={<PageList />} />
           <Route path="/barangCustomer/:noHp" element={<PageListCustomer />} />
-          <Route path="/list/add" element={<PageBarang />} />
-          <Route path="/list/edit/:id" element={<PageEdit />} />
           <Route path="/contact" element={<PageContact />} />
         </Route>
-
+          <Route path="/list/add" element={<PageBarang />} />
+          <Route path="/list/edit/:id" element={<PageEdit />} />
         <Route path="/signin" element={<PageSignIn />} />
       </Routes>
     </BrowserRouter>

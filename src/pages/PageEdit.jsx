@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 import Swal from 'sweetalert2';
+import classes from "./background.module.css";
 
 
 const PageEdit = () => {
@@ -112,9 +113,10 @@ const PageEdit = () => {
   };
 
   return (
-    <div style={{
-      backgroundColor: `white` }} className="">
-      <div className="container w-25">
+    <form
+    className={`${classes.backhead} vh-100 d-flex justify-content-center align-items-center`}
+  >
+      <div className="container w-25" style={{color:'white', fontWeight:'bold'}}>
         <form onSubmit={updateBarang}>
           <Form.Group className="mb-3">
             <Form.Label className="mt-5">Nama Barang</Form.Label>
@@ -164,9 +166,17 @@ const PageEdit = () => {
           <Button className="btn btn-success mb-5" type="submit">
             Update Data
           </Button>
+          <Link to="/list">
+                <Button
+                  variant="btn btn-warning mb-5 "
+                  style={{marginLeft:'20px'}}
+                >
+                  Kembali
+                </Button>
+              </Link>
         </form>
       </div>
-      </div>
+</form>
   );
 };
 

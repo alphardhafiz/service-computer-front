@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
+import classes from "./background.module.css";
 
 const PageBarang = () => {
   const [namaBarang, setnamaBarang] = useState("");
@@ -38,10 +39,10 @@ const PageBarang = () => {
   };
 
   return (
-    <div style={{
-      backgroundColor: `white`
-    }}>
-    <div className="columns container w-25">
+    <form
+    className={`${classes.backhead} vh-100 d-flex justify-content-center align-items-center`}
+  >
+    <div className="columns container w-25" style={{color:'white', fontWeight:'bold'}}>
       <form onSubmit={saveBarang}>
         <Form.Group className="mb-3">
           <Form.Label className="mt-5">Nama Barang</Form.Label>
@@ -84,11 +85,19 @@ const PageBarang = () => {
           />
         </Form.Group>
         <Button className="btn btn-success mb-5" type="submit">
-          Add
+          Tambah Data
         </Button>
+        <Link to="/list">
+                <Button
+                  variant="btn btn-warning mb-5 "
+                  style={{marginLeft:'20px'}}
+                >
+                  Kembali
+                </Button>
+              </Link>
       </form>
     </div>
-    </div>
+    </form>
   );
 };
 
