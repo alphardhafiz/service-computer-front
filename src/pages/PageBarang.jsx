@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 import classes from "./background.module.css";
+import Swal from "sweetalert2";
 
 const PageBarang = () => {
   const [namaBarang, setnamaBarang] = useState("");
@@ -12,31 +13,81 @@ const PageBarang = () => {
   const [namaCustomer, setnamaCustomer] = useState("");
   const navigate = useNavigate();
 
+  // const saveBarang = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const token = localStorage.getItem("token");
+  //     const config = {
+  //       headers: {
+  //         "x-access-token": token,
+  //       },
+  //     };
+  //     await axios.post(
+  //       "http://localhost:3000/api/barang",
+  //       {
+  //         namaBarang,
+  //         tipeKerusakan,
+  //         harga,
+  //         hpCustomer,
+  //         namaCustomer,
+  //       },
+  //       config
+  //     );
+  //     navigate("/list");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+
   const saveBarang = async (e) => {
     e.preventDefault();
-    try {
-      const token = localStorage.getItem("token");
-      const config = {
-        headers: {
-          "x-access-token": token,
-        },
-      };
-      await axios.post(
-        "http://localhost:3000/api/barang",
-        {
-          namaBarang,
-          tipeKerusakan,
-          harga,
-          hpCustomer,
-          namaCustomer,
-        },
-        config
-      );
-      navigate("/list");
-    } catch (error) {
-      console.log(error);
-    }
+    // Menambahkan SweetAlert konfirmasi
+    Swal.fire({
+      title: 'Anda yakin mau menambahkan data ini?',
+  
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const token = localStorage.getItem("token");
+          const config = {
+            headers: {
+              "x-access-token": token,
+            },
+          };
+          await axios.post(
+            "http://localhost:3000/api/barang",
+            {
+              namaBarang,
+              tipeKerusakan,
+              harga,
+              hpCustomer,
+              namaCustomer,
+            },
+            config
+          );
+          navigate("/list");
+          Swal.fire('Data berhasil dibuat!', '', 'success');
+        } catch (error) {
+          console.log(error);
+          Swal.fire('Error saving data', '', 'error');
+        }
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info');
+      }
+    });
   };
+
+
+
+
+
+
+
+
 
   return (
     <div
